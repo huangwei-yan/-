@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #bbj {
+            width: 2220px;
+            height: 530px;
+            position: absolute;
+            left: 0;
+            transition: all 0.5s;
+        }
+
+        #bba {
+            width: 444px;
+            height: 530px;
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        ul {
+            position: absolute;
+            left: 25px;
+            bottom: 20px;
+
+        }
+
+        ul > li {
+            list-style: none;
+            width: 30px;
+            height: 8px;
+            background-color: white;
+            float: left;
+            margin-left: 30px;
+        }
+
+        .bbc {
+            background-color: blueviolet !important;
+        }
+
+        div > img {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div id="bba">
+    <div id="bbj">
+        <img src="images/image1.jpg" alt="" width="444" height="530">
+        <img src="images/image2.jpg" alt="" width="444" height="530">
+        <img src="images/image3.jpg" alt="" width="444" height="530">
+        <img src="images/image4.jpg" alt="" width="444" height="530">
+        <img src="images/image5.jpg" alt="" width="444" height="530">
+
+    </div>
+    <ul>
+        <li class="bbc"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+</body>
+</html>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+    var a = 0;
+    var kk;
+    kk = setInterval(function () {
+        a++;
+        if (a > 4) {
+            a = 0;
+        }
+        $(`#bbj`).css('left', a * -444 + 'px');
+        $("li").eq(a).addClass("bbc").siblings().removeClass("bbc")
+    }, 1500)
+    $('li').click(function () {
+        // clearInterval(kk);
+        a = $(this).index();
+        $(`#bbj`).css('left', a * -444 + 'px');
+        $("li").eq(a).addClass("bbc").siblings().removeClass("bbc");
+    })
+
+
+</script>

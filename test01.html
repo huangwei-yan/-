@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        li>a {
+            display: inline-block;
+            width: 80px;
+            height: 150px;
+            overflow: hidden;
+            position: relative;
+            margin-right: -3px;
+            margin-bottom: -3px;
+            transition: all .5s;
+        }
+
+        li>a>img {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <a href=""><img src="images/image1.jpg"></a>
+            <a href=""><img src="images/image2.jpg"></a>
+            <a href=""><img src="images/image3.jpg"></a>
+            <a href=""><img src="images/image4.jpg"></a>
+            <a href=""><img src="images/image5.jpg"></a>
+        </li>
+        <li>
+            <a href=""><img src="images/image6.jpg"></a>
+            <a href=""><img src="images/image7.jpg"></a>
+            <a href=""><img src="images/image8.jpg"></a>
+            <a href=""><img src="images/image9.jpg"></a>
+            <a href=""><img src="images/image10.jpg"></a>
+        </li>
+        <li>
+            <a href=""><img src="images/image11.jpg"></a>
+            <a href=""><img src="images/image12.jpg"></a>
+            <a href=""><img src="images/image13.jpg"></a>
+            <a href=""><img src="images/image14.jpg"></a>
+            <a href=""><img src="images/image15.jpg"></a>
+        </li>
+        <li>
+            <a href=""><img src="images/image16.jpg"></a>
+            <a href=""><img src="images/image17.jpg"></a>
+            <a href=""><img src="images/image18.jpg"></a>
+            <a href=""><img src="images/image19.jpg"></a>
+            <a href=""><img src="images/image20.jpg"></a>
+        </li>
+    </ul>
+</body>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+    $(function () {
+        $("a").mouseover(function () {
+            let index = $(this).index();
+            $(this).css({ "width": "300px", "height": "380px" }).
+                siblings().css({ "height": "380px", "width": "150px" }).
+                parent().siblings().each(function () {
+                    $(this).children().eq(index).css({ "width": "300px", "height": "80px" }).
+                        siblings().css({ "width": "150px", "height": "80px" });
+                });
+        });
+    });
+</script>
+
+</html>

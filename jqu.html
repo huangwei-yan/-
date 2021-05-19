@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手风琴</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /*li {*/
+
+        /*}*/
+
+        li {
+            list-style: none;
+            display: inline-block;
+            width: 80px;
+            height: 150px;
+            overflow: hidden;
+            position: relative;
+            margin-right: -3px;
+            margin-bottom: -3px;
+            transition: all .5s;
+        }
+
+        li > img {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+<div id="yyy">
+    <ul>
+        <li><img src="images/image1.jpg"></li>
+        <li><img src="images/image2.jpg"></li>
+        <li><img src="images/image3.jpg"></li>
+        <li><img src="images/image4.jpg"></li>
+        <li><img src="images/image5.jpg"></li>
+    </ul>
+    <ul>
+        <li><img src="images/image6.jpg"></li>
+        <li><img src="images/image7.jpg"></li>
+        <li><img src="images/image8.jpg"></li>
+        <li><img src="images/image9.jpg"></li>
+        <li><img src="images/image10.jpg"></li>
+    </ul>
+    <ul>
+        <li><img src="images/image11.jpg"></li>
+        <li><img src="images/image12.jpg"></li>
+        <li><img src="images/image13.jpg"></li>
+        <li><img src="images/image14.jpg"></li>
+        <li><img src="images/image15.jpg"></li>
+    </ul>
+    <ul>
+        <li><img src="images/image16.jpg"></li>
+        <li><img src="images/image17.jpg"></li>
+        <li><img src="images/image18.jpg"></li>
+        <li><img src="images/image19.jpg"></li>
+        <li><img src="images/image20.jpg"></li>
+    </ul>
+</div>
+</body>
+</html>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+
+    $('li').mouseover(function () {
+        var index = $(this).index();
+        $(this).css({'width': '300px', 'height': '380px'}).siblings().css({
+            'width': '150px',
+            'height': '380px'
+        }).parent().siblings().each(function () {
+            $(this).children().eq(index).css({'width': '300px', 'height': '80px'}).siblings().css({
+                'width': '150px',
+                'height': '80px'
+            });
+        })
+    })
+</script>
